@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareShare - Make a Difference</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Donation.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>CareShare</span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Causes</a></li>
+                    <li><a href="#">Organizations</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" id="trackDonationLink" style="display: none;"><i class="fas fa-map-marker-alt"></i> Track Donation</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <button class="btn btn-charity" id="charityRegisterBtn">Register Your Charity</button>
+                <button class="btn btn-login" id="loginBtn">Login</button>
+                <button class="btn btn-register" id="registerBtn">Register</button>
+                <div id="userProfile" style="display: none;">
+                    <span id="userName"></span>
+                    <button class="btn btn-logout" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Small Help Can Make a Big Change</h1>
+            <p>Join us in making a difference in the lives of those in need. Together, we can create a better world for everyone.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-donate">Donate Now</button>
+                <button class="btn btn-about">About Us</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Causes Section -->
+    <section class="causes container">
+        <h2 class="section-title">Our Causes</h2>
+        <p class="section-subtitle">We support various causes that aim to improve lives and create sustainable change in communities.</p>
+        
+        <div class="category-grid">
+            <div class="category-card food" onclick="openModal('food')">
+                <div class="card-header">
+                    <i class="fas fa-utensils"></i>
+                    <h2>Food Donation</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Provide Nutritious Meals</h3>
+                    <p>Donate food items to help fight hunger in your community. Choose from various food options.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">124</div>
+                            <div class="stat-label">Donations Today</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card clothes" onclick="openModal('clothes')">
+                <div class="card-header">
+                    <i class="fas fa-tshirt"></i>
+                    <h2>Clothes Donation</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Give Warmth and Comfort</h3>
+                    <p>Donate clothing to offer warmth, dignity, and comfort to those in need.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">87</div>
+                            <div class="stat-label">Donations Today</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">9</div>
+                            <div class="stat-label">Organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card education" onclick="openModal('education')">
+                <div class="card-header">
+                    <i class="fas fa-book"></i>
+                    <h2>Education</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Support Learning</h3>
+                    <p>Help provide educational resources and opportunities for underprivileged children.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">56</div>
+                            <div class="stat-label">Donations Today</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card healthcare" onclick="openModal('healthcare')">
+                <div class="card-header">
+                    <i class="fas fa-heartbeat"></i>
+                    <h2>Healthcare</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Improve Health Access</h3>
+                    <p>Support medical care and health services for those who cannot afford it.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">73</div>
+                            <div class="stat-label">Donations Today</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">11</div>
+                            <div class="stat-label">Organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card shelter" onclick="openModal('shelter')">
+                <div class="card-header">
+                    <i class="fas fa-home"></i>
+                    <h2>Shelter</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Provide Safe Housing</h3>
+                    <p>Help provide safe and secure housing for homeless individuals and families.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">42</div>
+                            <div class="stat-label">Donations Today</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">7</div>
+                            <div class="stat-label">Organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card essentials" onclick="openModal('essentials')">
+                <div class="card-header">
+                    <i class="fas fa-box-open"></i>
+                    <h2>Essentials</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Provide Daily Necessities</h3>
+                    <p>Contribute essential items for daily hygiene, health, and living.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">63</div>
+                            <div class="stat-label">Donations Today</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">7</div>
+                            <div class="stat-label">Organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- New Causes -->
+            <div class="category-card animal" onclick="openModal('animal')">
+                <div class="card-header">
+                    <i class="fas fa-paw"></i>
+                    <h2>Animal Welfare</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Help Our Furry Friends</h3>
+                    <p>Support animal shelters and rescue organizations caring for abandoned and abused animals.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">38</div>
+                            <div class="stat-label">Donations Today</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">6</div>
+                            <div class="stat-label">Organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card environment" onclick="openModal('environment')">
+                <div class="card-header">
+                    <i class="fas fa-leaf"></i>
+                    <h2>Environment</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Protect Our Planet</h3>
+                    <p>Support environmental conservation efforts and sustainability initiatives.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">45</div>
+                            <div class="stat-label">Donations Today</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Organization Selection Modal -->
+    <div class="modal" id="orgModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Select Organization</h2>
+            <p>Choose an organization you would like to support with your donation.</p>
+            
+            <div class="org-grid" id="orgGrid">
+                <!-- Organizations will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Organization Details Modal -->
+    <div class="modal" id="orgDetailModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeDetailModal()">&times;</span>
+            <div id="orgDetails">
+                <!-- Organization details will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeLoginModal()">&times;</span>
+            <h2>Login to Your Account</h2>
+            <p>Access your donor dashboard to track your donations and impact.</p>
+            
+            <div class="login-form">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                        <label style="display: flex; align-items: center;">
+                            <input type="checkbox" style="margin-right: 8px;"> Remember me
+                        </label>
+                        <a href="#" style="font-size: 14px;">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit">Login</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" id="registerLink">Register now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Registration Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeRegisterModal()">&times;</span>
+            <h2>Create Your Account</h2>
+            <p>Join CareShare and start making a difference today.</p>
+            
+            <div class="login-form">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" placeholder="your@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPhone">Phone Number</label>
+                        <input type="tel" id="registerPhone" placeholder="Your phone number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" placeholder="At least 6 characters" required minlength="6">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="registerConfirmPassword" placeholder="Re-enter password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit">Register</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Charity Registration Modal -->
+    <div class="modal" id="charityModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCharityModal()">&times;</span>
+            <h2>Register Your Charity</h2>
+            <p>Join our network of organizations making a difference. Complete the form below to get started.</p>
+            
+            <div class="charity-form">
+                <form id="charityRegistrationForm">
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step active" id="formStep1">
+                        <h3 class="form-title">Basic Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="orgName">Organization Name *</label>
+                            <input type="text" id="orgName" name="orgName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orgType">Organization Type *</label>
+                            <select id="orgType" name="orgType" required>
+                                <option value="">Select type</option>
+                                <option value="NGO">NGO</option>
+                                <option value="Shelter">Shelter</option>
+                                <option value="Orphanage">Orphanage</option>
+                                <option value="Community Center">Community Center</option>
+                                <option value="School">School</option>
+                                <option value="Medical Clinic">Medical Clinic</option>
+                                <option value="Religious Organization">Religious Organization</option>
+                                <option value="Animal Shelter">Animal Shelter</option>
+                                <option value="Environmental Organization">Environmental Organization</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orgDescription">Organization Description *</label>
+                            <textarea id="orgDescription" name="orgDescription" rows="3" required placeholder="Briefly describe your organization's mission and activities"></textarea>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <div></div> <!-- Empty div for spacing -->
+                            <button type="button" class="btn btn-next" onclick="nextStep(1)">Next</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Contact Information -->
+                    <div class="form-step" id="formStep2">
+                        <h3 class="form-title">Contact Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="orgAddress">Address *</label>
+                            <input type="text" id="orgAddress" name="orgAddress" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="orgCity">City *</label>
+                                <input type="text" id="orgCity" name="orgCity" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="orgCountry">Country *</label>
+                                <input type="text" id="orgCountry" name="orgCountry" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="orgPhone">Phone Number *</label>
+                                <input type="tel" id="orgPhone" name="orgPhone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="orgEmail">Email Address *</label>
+                                <input type="email" id="orgEmail" name="orgEmail" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orgWebsite">Website (Optional)</label>
+                            <input type="url" id="orgWebsite" name="orgWebsite" placeholder="https://">
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-prev" onclick="prevStep(2)">Previous</button>
+                            <button type="button" class="btn btn-next" onclick="nextStep(2)">Next</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Services & Needs -->
+                    <div class="form-step" id="formStep3">
+                        <h3 class="form-title">Services & Needs</h3>
+                        
+                        <div class="form-group">
+                            <label>What services do you provide? *</label>
+                            <div style="margin-top: 10px;">
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="services" value="food"> Food Distribution
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="services" value="clothing"> Clothing Distribution
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="services" value="shelter"> Shelter/Housing
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="services" value="education"> Education
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="services" value="healthcare"> Healthcare
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="services" value="animal_welfare"> Animal Welfare
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="services" value="environment"> Environmental Conservation
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="services" value="other"> Other
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orgNeeds">What are your current needs? *</label>
+                            <textarea id="orgNeeds" name="orgNeeds" rows="3" required placeholder="List the items or services you currently need"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orgCapacity">How many people do you serve? *</label>
+                            <input type="number" id="orgCapacity" name="orgCapacity" min="1" required>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-prev" onclick="prevStep(3)">Previous</button>
+                            <button type="submit" class="btn btn-submit">Submit Registration</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Registration Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-modal" onclick="closeSuccessModal()">&times;</span>
+            <div style="font-size: 60px; color: #2ecc71; margin: 20px 0;">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Registration Submitted Successfully!</h2>
+            <p>Thank you for registering your charity with CareShare. Our team will review your application and contact you within 3-5 business days.</p>
+            <p>You will receive a confirmation email shortly.</p>
+            <button class="btn btn-submit" onclick="closeSuccessModal()" style="margin-top: 20px;">Continue</button>
+        </div>
+    </div>
+    
+    <!-- Tracking Modal -->
+    <div class="tracking-modal" id="trackingModal">
+        <div class="tracking-content">
+            <div class="tracking-header">
+                <h2 class="tracking-title">Donation Tracking</h2>
+                <div class="tracking-id">ID: <span id="trackingNumber">CS-283745</span></div>
+            </div>
+            
+            <div class="tracking-info">
+                <div class="info-card">
+                    <h3>Donation Details</h3>
+                    <p><strong>Items:</strong> <span id="trackItems">Rice, Vegetables</span></p>
+                    <p><strong>Quantity:</strong> <span id="trackQuantity">50 kg</span></p>
+                    <p><strong>For:</strong> <span id="trackPeople">25 people</span></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Destination</h3>
+                    <p><strong>Organization:</strong> <span id="trackOrg">Hope Shelter Home</span></p>
+                    <p><strong>Address:</strong> <span id="trackAddress">1234 Compassion Street, Downtown, City 10001</span></p>
+                    <p><strong>Expected Arrival:</strong> <span id="trackETA">45 minutes</span></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Donor Details</h3>
+                    <p><strong>Name:</strong> <span id="trackDonorName">-</span></p>
+                    <p><strong>Email:</strong> <span id="trackDonorEmail">-</span></p>
+                    <p><strong>Phone:</strong> <span id="trackDonorPhone">-</span></p>
+                </div>
+            </div>
+            
+            <div class="tracking-timeline">
+                <!-- Timeline will be dynamically generated -->
+            </div>
+            
+            <div class="driver-info">
+                <div class="driver-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="driver-details">
+                    <h3>Michael Rodriguez</h3>
+                    <p>Your delivery driver</p>
+                    <p>Vehicle: White Van (ABC 1234)</p>
+                    <div class="contact-driver">
+                        <button class="btn-call"><i class="fas fa-phone"></i> Call</button>
+                        <button class="btn-message"><i class="fas fa-comment"></i> Message</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="estimated-time">
+                <div class="eta-label">Estimated Time of Arrival</div>
+                <div class="eta-value" id="etaValue">45 minutes</div>
+            </div>
+            
+            <div class="tracking-actions">
+                <button class="btn btn-track" id="refreshTracking"><i class="fas fa-sync-alt"></i> Refresh Tracking</button>
+                <button class="btn btn-help" onclick="alert('Our support team will contact you shortly.')"><i class="fas fa-question-circle"></i> Get Help</button>
+            </div>
+            
+            <span class="close-modal" onclick="closeTrackingModal()">&times;</span>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About CareShare</h3>
+                <p>CareShare is a non-profit organization dedicated to connecting donors with those in need through transparent and efficient donation systems.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Causes</a></li>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Charity Street, City, Country</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@careshare.org</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 CareShare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="Donation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
